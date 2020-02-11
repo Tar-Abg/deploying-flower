@@ -608,7 +608,13 @@ let GetFlowersService = class GetFlowersService {
         return this.http.get(apiUrl);
     }
     getFlowerById(id) {
-        return this.items.find(e => e.id == id);
+        let obj;
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items['id'] = id) {
+                obj = this.items[i];
+            }
+        }
+        return obj;
     }
 };
 GetFlowersService.ctorParameters = () => [

@@ -625,7 +625,13 @@ var GetFlowersService = /** @class */ (function () {
         return this.http.get(apiUrl);
     };
     GetFlowersService.prototype.getFlowerById = function (id) {
-        return this.items.find(function (e) { return e.id == id; });
+        var obj;
+        for (var i = 0; i < this.items.length; i++) {
+            if (this.items['id'] = id) {
+                obj = this.items[i];
+            }
+        }
+        return obj;
     };
     GetFlowersService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
