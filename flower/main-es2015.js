@@ -721,7 +721,8 @@ const routes = [
     { path: '', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"] },
     { path: 'aboutUs', component: _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_13__["AboutUsComponent"] },
     { path: 'aboutOrder', component: _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_15__["AboutOrderComponent"] },
-    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__["FlowerItemComponent"] }
+    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__["FlowerItemComponent"] },
+    { path: '**', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"] }
 ];
 let AppModule = class AppModule {
 };
