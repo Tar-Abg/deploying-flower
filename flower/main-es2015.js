@@ -659,29 +659,6 @@ let GetFlowersService = class GetFlowersService {
     getAllItems1() {
         return this.http.get(this.url);
     }
-    // getAllItems1(){
-    //   this.getAllItems.subscribe(
-    //     (res: any) => {
-    //       if (res) {
-    //         this.items = res;
-    //         // this.getItemsService.items = this.items;
-    //         // this.image = this.items[5].image;
-    //         console.log(res);
-    //       }
-    //     },
-    //     (err) => console.log(err)
-    //   );
-    // }
-    getFlowerById(id) {
-        let obj;
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items['id'] = id) {
-                obj = this.items[i];
-            }
-        }
-        return obj;
-        console.log(this.items);
-    }
 };
 GetFlowersService.ctorParameters = () => [
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
@@ -753,24 +730,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jw-angular-pagination */ "./node_modules/jw-angular-pagination/lib/jw-pagination.component.js");
 /* harmony import */ var jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _Components_header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/header/header.component */ "./src/app/Components/header/header.component.ts");
-/* harmony import */ var _Components_carusel_carusel_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/carusel/carusel.component */ "./src/app/Components/carusel/carusel.component.ts");
-/* harmony import */ var _Components_line_break_line_break_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/line-break/line-break.component */ "./src/app/Components/line-break/line-break.component.ts");
-/* harmony import */ var _Components_flower_cart_flower_cart_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/flower-cart/flower-cart.component */ "./src/app/Components/flower-cart/flower-cart.component.ts");
-/* harmony import */ var _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/footer/footer.component */ "./src/app/Components/footer/footer.component.ts");
-/* harmony import */ var _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/about-us/about-us.component */ "./src/app/Components/about-us/about-us.component.ts");
-/* harmony import */ var _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/lending/lending.component */ "./src/app/Components/lending/lending.component.ts");
-/* harmony import */ var _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/about-order/about-order.component */ "./src/app/Components/about-order/about-order.component.ts");
-/* harmony import */ var _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./Components/flower-item/flower-item.component */ "./src/app/Components/flower-item/flower-item.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _Components_header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/header/header.component */ "./src/app/Components/header/header.component.ts");
+/* harmony import */ var _Components_carusel_carusel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/carusel/carusel.component */ "./src/app/Components/carusel/carusel.component.ts");
+/* harmony import */ var _Components_line_break_line_break_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/line-break/line-break.component */ "./src/app/Components/line-break/line-break.component.ts");
+/* harmony import */ var _Components_flower_cart_flower_cart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/flower-cart/flower-cart.component */ "./src/app/Components/flower-cart/flower-cart.component.ts");
+/* harmony import */ var _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./Components/footer/footer.component */ "./src/app/Components/footer/footer.component.ts");
+/* harmony import */ var _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./Components/about-us/about-us.component */ "./src/app/Components/about-us/about-us.component.ts");
+/* harmony import */ var _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Components/lending/lending.component */ "./src/app/Components/lending/lending.component.ts");
+/* harmony import */ var _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./Components/about-order/about-order.component */ "./src/app/Components/about-order/about-order.component.ts");
+/* harmony import */ var _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Components/flower-item/flower-item.component */ "./src/app/Components/flower-item/flower-item.component.ts");
 
 
 
 
 
-
+// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // import { AppRoutingModule } from './app-routing.module';
 
@@ -784,37 +760,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"] },
-    { path: 'aboutUs', component: _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_13__["AboutUsComponent"] },
-    { path: 'aboutOrder', component: _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_15__["AboutOrderComponent"] },
-    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__["FlowerItemComponent"] },
-    { path: '**', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"] }
+    { path: '', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_13__["LendingComponent"] },
+    { path: 'aboutUs', component: _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_12__["AboutUsComponent"] },
+    { path: 'aboutOrder', component: _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_14__["AboutOrderComponent"] },
+    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_15__["FlowerItemComponent"] },
+    { path: '**', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_13__["LendingComponent"] }
 ];
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-            _Components_header_header_component__WEBPACK_IMPORTED_MODULE_8__["HeaderComponent"],
-            _Components_carusel_carusel_component__WEBPACK_IMPORTED_MODULE_9__["CaruselComponent"],
-            _Components_line_break_line_break_component__WEBPACK_IMPORTED_MODULE_10__["LineBreakComponent"],
-            _Components_flower_cart_flower_cart_component__WEBPACK_IMPORTED_MODULE_11__["FlowerCartComponent"],
-            _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__["FooterComponent"],
-            _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_13__["AboutUsComponent"],
-            _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"],
-            _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_15__["AboutOrderComponent"],
+            _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
+            _Components_header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"],
+            _Components_carusel_carusel_component__WEBPACK_IMPORTED_MODULE_8__["CaruselComponent"],
+            _Components_line_break_line_break_component__WEBPACK_IMPORTED_MODULE_9__["LineBreakComponent"],
+            _Components_flower_cart_flower_cart_component__WEBPACK_IMPORTED_MODULE_10__["FlowerCartComponent"],
+            _Components_footer_footer_component__WEBPACK_IMPORTED_MODULE_11__["FooterComponent"],
+            _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_12__["AboutUsComponent"],
+            _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_13__["LendingComponent"],
+            _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_14__["AboutOrderComponent"],
             jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4__["JwPaginationComponent"],
-            _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__["FlowerItemComponent"]
+            _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_15__["FlowerItemComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             // AppRoutingModule,
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes)
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forRoot(routes)
         ],
-        providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_5__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_5__["HashLocationStrategy"] }],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+        providers: [],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })
 ], AppModule);
 
