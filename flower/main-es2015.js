@@ -624,51 +624,6 @@ GetFlowersService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/app-routing.module.ts":
-/*!***************************************!*\
-  !*** ./src/app/app-routing.module.ts ***!
-  \***************************************/
-/*! exports provided: AppRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/about-us/about-us.component */ "./src/app/Components/about-us/about-us.component.ts");
-/* harmony import */ var _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/lending/lending.component */ "./src/app/Components/lending/lending.component.ts");
-/* harmony import */ var _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/about-order/about-order.component */ "./src/app/Components/about-order/about-order.component.ts");
-/* harmony import */ var _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/flower-item/flower-item.component */ "./src/app/Components/flower-item/flower-item.component.ts");
-
-
-
-
-
-
-
-const routes = [
-    { path: '', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_4__["LendingComponent"] },
-    { path: 'aboutUs', component: _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_3__["AboutUsComponent"] },
-    { path: 'aboutOrder', component: _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_5__["AboutOrderComponent"] },
-    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_6__["FlowerItemComponent"] }
-];
-let AppRoutingModule = class AppRoutingModule {
-};
-AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)
-            // AboutUsComponent
-        ],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], AppRoutingModule);
-
-
-
-/***/ }),
-
 /***/ "./src/app/app.component.scss":
 /*!************************************!*\
   !*** ./src/app/app.component.scss ***!
@@ -727,7 +682,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jw-angular-pagination */ "./node_modules/jw-angular-pagination/lib/jw-pagination.component.js");
 /* harmony import */ var jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jw_angular_pagination__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _Components_header_header_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/header/header.component */ "./src/app/Components/header/header.component.ts");
 /* harmony import */ var _Components_carusel_carusel_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/carusel/carusel.component */ "./src/app/Components/carusel/carusel.component.ts");
@@ -745,6 +700,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { AppRoutingModule } from './app-routing.module';
 
 
 
@@ -755,6 +711,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const routes = [
+    { path: '', component: _Components_lending_lending_component__WEBPACK_IMPORTED_MODULE_14__["LendingComponent"] },
+    { path: 'aboutUs', component: _Components_about_us_about_us_component__WEBPACK_IMPORTED_MODULE_13__["AboutUsComponent"] },
+    { path: 'aboutOrder', component: _Components_about_order_about_order_component__WEBPACK_IMPORTED_MODULE_15__["AboutOrderComponent"] },
+    { path: 'item/:id', component: _Components_flower_item_flower_item_component__WEBPACK_IMPORTED_MODULE_16__["FlowerItemComponent"] }
+];
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -774,8 +736,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+            // AppRoutingModule,
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_6__["RouterModule"].forRoot(routes, {
+                useHash: true
+            })
         ],
         providers: [{ provide: _angular_common__WEBPACK_IMPORTED_MODULE_5__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_5__["HashLocationStrategy"] }],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
