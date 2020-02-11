@@ -74,7 +74,7 @@ module.exports = "<div class=\"card\">\n    <img [src]=\"'https://greengarden77.
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n    <div class=\"product-img\">\n      <img [src]=\"'https://greengarden77.000webhostapp.com/'+flowerObject.image\" height=\"420\" width=\"327\">\n    </div>\n    <div class=\"product-info\">\n      <div class=\"product-text\">\n        <h1>{{flowerObject.title}}</h1>\n        <h2>by Green Garden</h2>\n        <p>{{flowerObject.description}}</p>\n      </div>\n      <div class=\"product-price-btn\">\n        <p><span>{{flowerObject.price}}</span>AMD</p>\n        <button routerLink=\"/\" type=\"button\" class=\"backBtn\">Back</button>\n      </div>\n    </div>\n  </div>"
+module.exports = "<app-header></app-header>\n<div class=\"wrapper\">\n    <div class=\"product-img\">\n      <img [src]=\"'https://greengarden77.000webhostapp.com/'+flowerObject?.image\" height=\"420\" width=\"327\">\n    </div>\n    <div class=\"product-info\">\n      <div class=\"product-text\">\n        <h1>{{flowerObject?.title}}</h1>\n        <h2>by Green Garden</h2>\n        <p>{{flowerObject?.description}}</p>\n      </div>\n      <div class=\"product-price-btn\">\n        <p><span>{{flowerObject?.price}}</span>AMD</p>\n        <button routerLink=\"/\" type=\"button\" class=\"backBtn\">Back</button>\n      </div>\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -347,16 +347,38 @@ let FlowerItemComponent = class FlowerItemComponent {
         this.router = router;
         this.activRout = activRout;
         this.flowerService = flowerService;
+        this.items = [];
         this.activRout.params
             .subscribe((params) => {
             this.id = params['id'];
+            // console.log(this.flowerService.items, 'll')
         });
-        this.getItem();
     }
-    getItem() {
-        this.flowerObject = this.flowerService.getFlowerById(this.id);
+    getItems() {
+        this.flowerService.getAllItems1().subscribe((res) => {
+            if (res) {
+                this.items = res;
+                this.getItem(this.id);
+                // this.flowerService.items = this.items;
+                console.log(this.items);
+                // this.getItemsService.items = this.items;
+                // this.image = this.items[5].image;
+                // console.log(res);
+            }
+        }, (err) => console.log(err));
+    }
+    getItem(id) {
+        let obj;
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items['id'] = id) {
+                this.flowerObject = this.items[i];
+            }
+        }
+        // return obj;
+        // this.flowerObject = this.flowerService.getFlowerById(this.id);
     }
     ngOnInit() {
+        this.getItems();
     }
 };
 FlowerItemComponent.ctorParameters = () => [
@@ -441,10 +463,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _Services_get_flowers_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Services/get-flowers.service */ "./src/app/Services/get-flowers.service.ts");
+
 
 
 let HeaderComponent = class HeaderComponent {
-    constructor() {
+    constructor(getItemsService) {
+        this.getItemsService = getItemsService;
         this.showNavbarList = false;
         this.changeHeaderColor = false;
     }
@@ -460,9 +485,25 @@ let HeaderComponent = class HeaderComponent {
     togleNavbar() {
         this.showNavbarList = !this.showNavbarList;
     }
+    getItems() {
+        this.getItemsService.getAllItems1().subscribe((res) => {
+            if (res) {
+                this.items = res;
+                this.getItemsService.items = this.items;
+                console.log(this.items);
+                // this.getItemsService.items = this.items;
+                // this.image = this.items[5].image;
+                // console.log(res);
+            }
+        }, (err) => console.log(err));
+    }
     ngOnInit() {
+        this.getItems();
     }
 };
+HeaderComponent.ctorParameters = () => [
+    { type: _Services_get_flowers_service__WEBPACK_IMPORTED_MODULE_2__["GetFlowersService"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:scroll', ['$event']) // for window scroll events
 ], HeaderComponent.prototype, "onScroll", null);
@@ -508,16 +549,18 @@ __webpack_require__.r(__webpack_exports__);
 let LendingComponent = class LendingComponent {
     constructor(getItemsService) {
         this.getItemsService = getItemsService;
-        this.getItems('https://greengarden77.000webhostapp.com/getAll');
+        this.items = getItemsService.items;
+        console.log(this.image);
+        this.getItems();
     }
     ngOnInit() {
     }
-    getItems(url) {
-        this.getItemsService.getAllItems(url).subscribe((res) => {
+    getItems() {
+        this.getItemsService.getAllItems1().subscribe((res) => {
             if (res) {
                 this.items = res;
                 this.getItemsService.items = this.items;
-                this.image = this.items[5].image;
+                console.log(this.items);
                 console.log(res);
             }
         }, (err) => console.log(err));
@@ -602,11 +645,33 @@ __webpack_require__.r(__webpack_exports__);
 
 let GetFlowersService = class GetFlowersService {
     constructor(http) {
+        // this.getAllItems()
+        // this.items = this.getAllItems();
+        // console.log(this.items , 'ml,')
         this.http = http;
+        this.url = 'https://greengarden77.000webhostapp.com/getAll';
     }
-    getAllItems(apiUrl) {
-        return this.http.get(apiUrl);
+    getAllItems() {
+        return this.http.get(this.url).subscribe(data => {
+            this.items = data;
+        });
     }
+    getAllItems1() {
+        return this.http.get(this.url);
+    }
+    // getAllItems1(){
+    //   this.getAllItems.subscribe(
+    //     (res: any) => {
+    //       if (res) {
+    //         this.items = res;
+    //         // this.getItemsService.items = this.items;
+    //         // this.image = this.items[5].image;
+    //         console.log(res);
+    //       }
+    //     },
+    //     (err) => console.log(err)
+    //   );
+    // }
     getFlowerById(id) {
         let obj;
         for (let i = 0; i < this.items.length; i++) {
@@ -615,6 +680,7 @@ let GetFlowersService = class GetFlowersService {
             }
         }
         return obj;
+        console.log(this.items);
     }
 };
 GetFlowersService.ctorParameters = () => [
